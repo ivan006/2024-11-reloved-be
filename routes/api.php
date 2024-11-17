@@ -30,6 +30,10 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
 
+    Route::apiResource('product-brands', \App\Http\Controllers\Api\ProductBrandController::class);
+    Route::apiResource('product-categories', \App\Http\Controllers\Api\ProductCategoryController::class);
+    Route::apiResource('products', \App\Http\Controllers\Api\ProductController::class);
+
 });
 
 
@@ -43,13 +47,17 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::get('users', [\App\Http\Controllers\Api\UserController::class, 'index'])->name('users.index');
 Route::get('users/{user}', [\App\Http\Controllers\Api\UserController::class, 'show'])->name('users.show');
 
-// API routes for failed-jobs
-Route::apiResource('failed-jobs', \App\Http\Controllers\Api\FailedJobController::class);
-// API routes for migration-s
-Route::apiResource('migration-s', \App\Http\Controllers\Api\MigrationController::class);
-// API routes for password-reset-tokens
-Route::apiResource('password-reset-tokens', \App\Http\Controllers\Api\PasswordResetTokenController::class);
-// API routes for personal-access-tokens
-Route::apiResource('personal-access-tokens', \App\Http\Controllers\Api\PersonalAccessTokenController::class);
-// API routes for users
-Route::apiResource('users', \App\Http\Controllers\Api\UserController::class);
+
+Route::get('users', [\App\Http\Controllers\Api\UserController::class, 'index'])->name('users.index');
+Route::get('users/{user}', [\App\Http\Controllers\Api\UserController::class, 'show'])->name('users.show');
+
+Route::get('product-brands', [\App\Http\Controllers\Api\ProductBrandController::class, 'index'])->name('product-brands.index');
+Route::get('product-brands/{product_brand}', [\App\Http\Controllers\Api\ProductBrandController::class, 'show'])->name('product-brands.show');
+
+Route::get('product-categories', [\App\Http\Controllers\Api\ProductCategoryController::class, 'index'])->name('product-categories.index');
+Route::get('product-categories/{product_category}', [\App\Http\Controllers\Api\ProductCategoryController::class, 'show'])->name('product-categories.show');
+
+Route::get('products', [\App\Http\Controllers\Api\ProductController::class, 'index'])->name('products.index');
+Route::get('products/{product}', [\App\Http\Controllers\Api\ProductController::class, 'show'])->name('products.show');
+
+
