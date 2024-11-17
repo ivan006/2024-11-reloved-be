@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Api;
 
 use QuicklistsOrmApi\OrmApi;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\FailedJob;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class FailedJobController extends Controller
 {
-    protected $itemNameSingular = "User";
+    protected $itemNameSingular = "Failed Job";
     protected $model;
 
     public function __construct()
     {
-        $this->model = new User();
+        $this->model = new FailedJob();
     }
 
     /**

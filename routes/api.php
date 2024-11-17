@@ -42,3 +42,14 @@ Route::middleware('auth:sanctum')->group(function () {
 // API routes for users
 Route::get('users', [\App\Http\Controllers\Api\UserController::class, 'index'])->name('users.index');
 Route::get('users/{user}', [\App\Http\Controllers\Api\UserController::class, 'show'])->name('users.show');
+
+// API routes for failed-jobs
+Route::apiResource('failed-jobs', \App\Http\Controllers\Api\FailedJobController::class);
+// API routes for migration-s
+Route::apiResource('migration-s', \App\Http\Controllers\Api\MigrationController::class);
+// API routes for password-reset-tokens
+Route::apiResource('password-reset-tokens', \App\Http\Controllers\Api\PasswordResetTokenController::class);
+// API routes for personal-access-tokens
+Route::apiResource('personal-access-tokens', \App\Http\Controllers\Api\PersonalAccessTokenController::class);
+// API routes for users
+Route::apiResource('users', \App\Http\Controllers\Api\UserController::class);

@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Api;
 
 use QuicklistsOrmApi\OrmApi;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\PasswordResetToken;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class PasswordResetTokenController extends Controller
 {
-    protected $itemNameSingular = "User";
+    protected $itemNameSingular = "Password Reset Token";
     protected $model;
 
     public function __construct()
     {
-        $this->model = new User();
+        $this->model = new PasswordResetToken();
     }
 
     /**
