@@ -8,14 +8,14 @@ return new class extends Migration {
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('title');
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
-            $table->unsignedBigInteger('seller_id'); // References users table
-            $table->unsignedBigInteger('buyer_id')->nullable(); // References users table
-            $table->unsignedBigInteger('category_id')->nullable(); // References product_categories table
-            $table->unsignedBigInteger('brand_id')->nullable(); // References product_brands table
+            $table->unsignedInteger('seller_id'); // References users table
+            $table->unsignedInteger('buyer_id')->nullable(); // References users table
+            $table->unsignedInteger('category_id')->nullable(); // References product_categories table
+            $table->unsignedInteger('brand_id')->nullable(); // References product_brands table
             $table->string('status')->default('available'); // 'available', 'sold', etc.
             $table->timestamps();
 
