@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use QuicklistsOrmApi\OrmApi;
+use WizwebBe\OrmApi;
 use App\Http\Controllers\Controller;
-use App\Models\PersonalAccessToken;
+use App\Models\Gender;
 use Illuminate\Http\Request;
 
-class PersonalAccessTokenController extends Controller
+class GenderController extends Controller
 {
-    protected $itemNameSingular = "Personal Access Token";
+    protected $itemNameSingular = "Gender";
     protected $model;
 
     public function __construct()
     {
-        $this->model = new PersonalAccessToken();
+        $this->model = new Gender();
     }
 
     /**

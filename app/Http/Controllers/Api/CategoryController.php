@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use QuicklistsOrmApi\OrmApi;
+use WizwebBe\OrmApi;
 use App\Http\Controllers\Controller;
-use App\Models\PasswordResetToken;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class PasswordResetTokenController extends Controller
+class CategoryController extends Controller
 {
-    protected $itemNameSingular = "Password Reset Token";
+    protected $itemNameSingular = "Category";
     protected $model;
 
     public function __construct()
     {
-        $this->model = new PasswordResetToken();
+        $this->model = new Category();
     }
 
     /**

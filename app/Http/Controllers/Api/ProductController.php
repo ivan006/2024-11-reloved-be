@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use QuicklistsOrmApi\OrmApi;
+use WizwebBe\OrmApi;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;

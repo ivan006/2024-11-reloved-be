@@ -29,9 +29,12 @@ Route::middleware('auth:sanctum')->group(function () {
     //Route::apiResource('posts', \App\Http\Controllers\Api\PostController::class);
 
 
+    Route::apiResource('brands', \App\Http\Controllers\Api\BrandController::class);
 
-    Route::apiResource('product-brands', \App\Http\Controllers\Api\ProductBrandController::class);
-    Route::apiResource('product-categories', \App\Http\Controllers\Api\ProductCategoryController::class);
+    Route::apiResource('categories', \App\Http\Controllers\Api\CategoryController::class);
+
+    Route::apiResource('genders', \App\Http\Controllers\Api\GenderController::class);
+
     Route::apiResource('products', \App\Http\Controllers\Api\ProductController::class);
 
 });
@@ -48,16 +51,14 @@ Route::get('users', [\App\Http\Controllers\Api\UserController::class, 'index'])-
 Route::get('users/{user}', [\App\Http\Controllers\Api\UserController::class, 'show'])->name('users.show');
 
 
-Route::get('users', [\App\Http\Controllers\Api\UserController::class, 'index'])->name('users.index');
-Route::get('users/{user}', [\App\Http\Controllers\Api\UserController::class, 'show'])->name('users.show');
+Route::get('brands', [\App\Http\Controllers\Api\BrandController::class, 'index'])->name('brands.index');
+Route::get('brands/{brand}', [\App\Http\Controllers\Api\BrandController::class, 'index'])->name('brands.show');
 
-Route::get('product-brands', [\App\Http\Controllers\Api\ProductBrandController::class, 'index'])->name('product-brands.index');
-Route::get('product-brands/{product_brand}', [\App\Http\Controllers\Api\ProductBrandController::class, 'show'])->name('product-brands.show');
+Route::get('categories', [\App\Http\Controllers\Api\CategoryController::class, 'index'])->name('categories.index');
+Route::get('categories/{category}', [\App\Http\Controllers\Api\CategoryController::class, 'index'])->name('categories.show');
 
-Route::get('product-categories', [\App\Http\Controllers\Api\ProductCategoryController::class, 'index'])->name('product-categories.index');
-Route::get('product-categories/{product_category}', [\App\Http\Controllers\Api\ProductCategoryController::class, 'show'])->name('product-categories.show');
+Route::get('genders', [\App\Http\Controllers\Api\GenderController::class, 'index'])->name('genders.index');
+Route::get('genders/{gender}', [\App\Http\Controllers\Api\GenderController::class, 'index'])->name('genders.show');
 
 Route::get('products', [\App\Http\Controllers\Api\ProductController::class, 'index'])->name('products.index');
-Route::get('products/{product}', [\App\Http\Controllers\Api\ProductController::class, 'show'])->name('products.show');
-
-
+Route::get('products/{product}', [\App\Http\Controllers\Api\ProductController::class, 'index'])->name('products.show');

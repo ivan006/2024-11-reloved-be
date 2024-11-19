@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use QuicklistsOrmApi\OrmApiBaseModel;
+use WizwebBe\OrmApiBaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -18,10 +18,11 @@ class Product extends OrmApiBaseModel
     public function parentRelationships()
     {
         return [
-            'seller' => [],
-            'buyer' => [],
+            'brand' => [],
+            'gender' => [],
             'category' => [],
-            'brand' => []
+            'seller' => [],
+            'buyer' => []
         ];
     }
 
@@ -42,31 +43,50 @@ class Product extends OrmApiBaseModel
     public function rules()
     {
         return [
-            'title' => 'sometimes:required',
+            'name' => 'sometimes:required',
             'description' => 'nullable',
             'price' => 'sometimes:required',
-            'seller_id' => 'sometimes:required',
-            'buyer_id' => 'nullable',
-            'category_id' => 'nullable',
-            'brand_id' => 'nullable',
-            'status' => 'sometimes:required',
+            'image' => 'nullable',
+            'purchase_date' => 'sometimes:required',
             'created_at' => 'nullable',
-            'updated_at' => 'nullable'
+            'updated_at' => 'nullable',
+            'brand_id' => 'sometimes:required',
+            'gender_id' => 'sometimes:required',
+            'category_id' => 'sometimes:required',
+            'seller_id' => 'sometimes:required',
+            'buyer_id' => 'sometimes:required'
         ];
     }
 
     protected $fillable = [
-        'title',
+        'name',
         'description',
         'price',
-        'seller_id',
-        'buyer_id',
-        'category_id',
-        'brand_id',
-        'status',
+        'image',
+        'purchase_date',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'brand_id',
+        'gender_id',
+        'category_id',
+        'seller_id',
+        'buyer_id'
     ];
+
+        public function brand(): BelongsTo
+    {
+        return $this->belongsTo(Brand::class, 'brand_id');
+    }
+
+        public function gender(): BelongsTo
+    {
+        return $this->belongsTo(Gender::class, 'gender_id');
+    }
+
+        public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 
         public function seller(): BelongsTo
     {
@@ -76,16 +96,6 @@ class Product extends OrmApiBaseModel
         public function buyer(): BelongsTo
     {
         return $this->belongsTo(User::class, 'buyer_id');
-    }
-
-        public function category(): BelongsTo
-    {
-        return $this->belongsTo(ProductCategory::class, 'category_id');
-    }
-
-        public function brand(): BelongsTo
-    {
-        return $this->belongsTo(ProductBrand::class, 'brand_id');
     }
 
     

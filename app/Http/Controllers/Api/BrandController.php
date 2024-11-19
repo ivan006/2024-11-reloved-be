@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use QuicklistsOrmApi\OrmApi;
+use WizwebBe\OrmApi;
 use App\Http\Controllers\Controller;
-use App\Models\Migration;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
-class MigrationController extends Controller
+class BrandController extends Controller
 {
-    protected $itemNameSingular = "Migration";
+    protected $itemNameSingular = "Brand";
     protected $model;
 
     public function __construct()
     {
-        $this->model = new Migration();
+        $this->model = new Brand();
     }
 
     /**

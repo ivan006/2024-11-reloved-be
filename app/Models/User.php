@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use QuicklistsOrmApi\OrmApiBaseModel;
+use WizwebBe\OrmApiBaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;

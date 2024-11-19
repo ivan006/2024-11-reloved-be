@@ -2,18 +2,18 @@
 
 namespace App\Models;
 
-use QuicklistsOrmApi\OrmApiBaseModel;
+use WizwebBe\OrmApiBaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class PasswordResetToken extends OrmApiBaseModel
+class Category extends OrmApiBaseModel
 {
-    protected $table = 'password_reset_tokens';
+    protected $table = 'categories';
 
     public $timestamps = false;
 
-    protected $primaryKey = '';
+    protected $primaryKey = 'id';
 
     public function parentRelationships()
     {
@@ -32,28 +32,31 @@ class PasswordResetToken extends OrmApiBaseModel
     public function childRelationships()
     {
         return [
-            
+            'products' => []
         ];
     }
 
     public function rules()
     {
         return [
-            'email' => 'sometimes:required',
-            'token' => 'sometimes:required',
-            'created_at' => 'nullable'
+            'name' => 'sometimes:required',
+            'created_at' => 'nullable',
+            'updated_at' => 'nullable'
         ];
     }
 
     protected $fillable = [
-        'email',
-        'token',
-        'created_at'
+        'name',
+        'created_at',
+        'updated_at'
     ];
 
     
 
-    
+        public function products(): HasMany
+    {
+        return $this->hasMany(Product::class, 'category_id');
+    }
 
     
 }

@@ -19,7 +19,6 @@ yarn-error.log
 /.vscode
 /vuex-orm-models
 
-
 /resources/js/controllers/*
 !/resources/js/controllers/*.gitkeep
 /resources/js/models/*

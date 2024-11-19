@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use QuicklistsOrmApi\OrmApiBaseModel;
+use WizwebBe\OrmApiBaseModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Migration extends OrmApiBaseModel
+class Gender extends OrmApiBaseModel
 {
-    protected $table = 'migrations';
+    protected $table = 'genders';
 
     public $timestamps = false;
 
@@ -32,26 +32,31 @@ class Migration extends OrmApiBaseModel
     public function childRelationships()
     {
         return [
-            
+            'products' => []
         ];
     }
 
     public function rules()
     {
         return [
-            'migration' => 'sometimes:required',
-            'batch' => 'sometimes:required'
+            'name' => 'sometimes:required',
+            'created_at' => 'nullable',
+            'updated_at' => 'nullable'
         ];
     }
 
     protected $fillable = [
-        'migration',
-        'batch'
+        'name',
+        'created_at',
+        'updated_at'
     ];
 
     
 
-    
+        public function products(): HasMany
+    {
+        return $this->hasMany(Product::class, 'gender_id');
+    }
 
     
 }
