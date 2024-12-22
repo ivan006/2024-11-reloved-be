@@ -52,13 +52,13 @@ Route::get('users/{user}', [\App\Http\Controllers\Api\UserController::class, 'sh
 
 
 Route::get('brands', [\App\Http\Controllers\Api\BrandController::class, 'index'])->name('brands.index');
-Route::get('brands/{brand}', [\App\Http\Controllers\Api\BrandController::class, 'index'])->name('brands.show');
+Route::get('brands/{brand}', [\App\Http\Controllers\Api\BrandController::class, 'show'])->name('brands.show');
 
 Route::get('categories', [\App\Http\Controllers\Api\CategoryController::class, 'index'])->name('categories.index');
-Route::get('categories/{category}', [\App\Http\Controllers\Api\CategoryController::class, 'index'])->name('categories.show');
+Route::get('categories/{category}', [\App\Http\Controllers\Api\CategoryController::class, 'show'])->name('categories.show');
 
 Route::get('genders', [\App\Http\Controllers\Api\GenderController::class, 'index'])->name('genders.index');
-Route::get('genders/{gender}', [\App\Http\Controllers\Api\GenderController::class, 'index'])->name('genders.show');
+Route::get('genders/{gender}', [\App\Http\Controllers\Api\GenderController::class, 'show'])->name('genders.show');
 
 Route::get('products', [\App\Http\Controllers\Api\ProductController::class, 'index'])->name('products.index');
-Route::get('products/{product}', [\App\Http\Controllers\Api\ProductController::class, 'index'])->name('products.show');
+Route::get('products/{product}', [\App\Http\Controllers\Api\ProductController::class, 'show'])->name('products.show');
