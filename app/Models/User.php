@@ -32,8 +32,8 @@ class User extends OrmApiBaseModel
     public function childRelationships()
     {
         return [
-            'products_buyer_id' => [],
-            'products_seller_id' => []
+            'products_where_buyer' => [],
+            'products_where_seller' => []
         ];
     }
 
@@ -66,12 +66,12 @@ class User extends OrmApiBaseModel
 
 
 
-        public function products_buyer_id(): HasMany
+        public function products_where_buyer(): HasMany
     {
         return $this->hasMany(Product::class, 'buyer_id');
     }
 
-        public function products_seller_id(): HasMany
+        public function products_where_seller(): HasMany
     {
         return $this->hasMany(Product::class, 'seller_id');
     }
